@@ -56,7 +56,7 @@ console.log(typeof myObjbj); //object
 
 console.log(typeof cat); //function (object func)
 
-//*************************************************//
+//********************** MEMORY ************************//
 
 // Stack (Primitive)(copy data), Heap (Non - primitive)(original data)
 
