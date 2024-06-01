@@ -33,4 +33,4 @@ console.log(" Ran frm 1 to 1o ",Math.floor(Math.random()*10) +1);
 const min = 10;
 const max = 20;
 
-console.log(Math.floor(Math.random() * (max - min +1))+ min);
+console.log(" Ran frm 10 to 20 ",Math.floor(Math.random() * (max - min +1))+ min);
