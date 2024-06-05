@@ -96,7 +96,7 @@ switch (key) {
         break;
 }
 
-//__switch case use __stricg comparison(===)
+//__switch case use __strict comparison(===)
 let x = "0";
 switch (x) {
     case 0:
