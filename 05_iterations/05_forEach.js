@@ -1,6 +1,10 @@
+//_____forEach()
 //forEach() is an iterative method
+
 //it calls a provided callbackFn function once for 
 //each element in an array in ascending index order.
+
+// __forEach() always returns undefined and is not chainable
 
 const coding = ['js','ruby','java','py','cpp'];
 
