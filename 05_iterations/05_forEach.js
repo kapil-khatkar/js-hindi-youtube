@@ -1,10 +1,12 @@
-//for Each
+//forEach() is an iterative method
+//it calls a provided callbackFn function once for 
+//each element in an array in ascending index order.
 
-//for each with function
 const coding = ['js','ruby','java','py','cpp'];
 
+//for each with function 
 coding.forEach( function (item) {
-    console.log(item);
+    console.log(item); //track each element of array
 } )
 
 console.log("\n");
@@ -45,8 +47,8 @@ myCoding.forEach((item)=>{
     console.log(item.langName);
 })
 
-// __forEach will not return any value
-// const code=["Flutter","Kotlin","C#"]
+// __forEach() always returns undefined and is not chainable
+// const code=["Flutter","Kotlin","C#"];
 // const values=code.forEach((item)=>{
 //     console.log(item);
 //     return item; //cant access return 
@@ -58,12 +60,12 @@ myCoding.forEach((item)=>{
 //___filter
 const myNums =[1,2,3,4,5,6,7];
 const newNums = myNums.filter((num)=>num>4)
-console.log(newNums);
+console.log(newNums); //[5,6,7]
 
 const newNums2 = myNums.filter((num)=>{
     return num>4
 });
-console.log(newNums2);
+console.log(newNums2); //[5,6,7]
 
 //___forEach 
 const newNum =[];
@@ -73,4 +75,4 @@ myNums.forEach((num)=>{
     }
 })
 
-console.log(newNum);
+console.log(newNum); //[5,6,7]
