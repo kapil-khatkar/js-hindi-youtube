@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141;" color="aliceblue">
+    
+    <ul>
+        
+        <li><img style="color: aliceblue;" src="" id="meow" alt="">cat</li>
+
+        <li><img style="color: aliceblue;" src="" id="leopard" alt="">leopard</li>
+
+        <li><img style="color: aliceblue;" src="" id="owl" alt="" onclick="alert('owl')">owl</li>
+        // onclick here is not feasible approach becaz
+        // it creates problem when the page will scale up
+        // so avoid it usually
+
+        //but in case of react this scenerio is opposite
+        //as react have scalable code when onclick set directly to the button
+
+        <li><img style="color: aliceblue;" src="" id="tiger" alt="">tiger</li>
+
+        <li><a style="color: aliceblue;" href="" id="google"></a> Google</li>
+    </ul>
+</body>
+<script>
+    //js is sequencially run lang.
+
+    // document.getElementById('owl').onclick = function () {
+    //     alert('owl clicked');        
+    // }
+    // 2nd approach for event
+    // this approach also not feasible
+    // we might get problem in this approach too
+
+    //addEventListener is very powerful
+    //it listens so many events
+    
+    // 3rd Approach for event 
+    // addEventListener()
+    document.getElementById('owl').addEventListener('click',function (e) {
+        alert('owl clicked again');
+    }, false);
+    // 3rd parameter is default parameter which is false here
+
+    // attachEvent()
+    // 4th approach
+    
+</script>
+</html>
