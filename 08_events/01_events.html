@@ -4,30 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Events</title>
+    <style>img{border:5px solid #ddd;
+                height: 200px;
+                width: 250px;
+                display: block;
+                object-fit: fill;
+    }</style>
 </head>
-<body style="background-color: #414141;" color="aliceblue">
+<body style="background-color: #414141;color:aliceblue">
     
-    <ul>
+    <ul id="images">
         
-        <li><img style="color: aliceblue;" src="" id="meow" alt="">cat</li>
+        <li><img style="color: aliceblue;width:200px" src="https://images.pexels.com/photos/13997897/pexels-photo-13997897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="meow" alt="meow">cat</li>
 
-        <li><img style="color: aliceblue;" src="" id="leopard" alt="">leopard</li>
+        <li><img style="color: aliceblue;width:300px" src="https://images.pexels.com/photos/267074/pexels-photo-267074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="leopard" alt="#leopard">leopard</li>
 
-        <li><img style="color: aliceblue;" src="https://www.pexels.com/photo/snowy-owl-flying-over-a-snow-covered-field-19898701/" id="owl" alt="" onclick="alert('owl')">owl</li>
-        // onclick here is not feasible approach becaz
+        <li><img style="color: aliceblue;" src="https://images.pexels.com/photos/19898701/pexels-photo-19898701/free-photo-of-snowy-owl-flying-over-a-snow-covered-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="owl" alt="#owl" onclick="alert('owl')">owl</li>
+        <!-- // onclick here is not feasible approach becaz
         // it creates problem when the page will scale up
-        // so avoid it usually
+        // so avoid it usually -->
 
-        //but in case of react this scenerio is opposite
-        //as react have scalable code when onclick set directly to the button
+        <!-- //but in case of react this scenerio is opposite
+        //as react have scalable code when onclick set directly to the button -->
 
-        <li><img style="color: aliceblue;" src="" id="tiger" alt="">tiger</li>
+        <li><img style="color: aliceblue;" src="https://images.pexels.com/photos/302304/pexels-photo-302304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="tiger" alt="#tiger">tiger</li>
 
-        <li><a style="color: aliceblue;" href="" id="google"></a> Google</li>
+        <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
     </ul>
 </body>
 <script>
     //js is sequencially run lang.
+    // interview related ques (task to read events)
+    // type, timestamp, defaultPrevented,
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
 
     // document.getElementById('owl').onclick = function () {
     //     alert('owl clicked');        
@@ -36,18 +48,73 @@
     // this approach also not feasible
     // we might get problem in this approach too
 
-    //addEventListener is very powerful
-    //it listens so many events
+    // addEventListener is very powerful
+    // it listens so many events
     
     // 3rd Approach for event 
+    // best approach
     // addEventListener()
-    document.getElementById('owl').addEventListener('click',function (e) {
-        alert('owl clicked again');
-    }, false);
-    // 3rd parameter is default parameter which is false here
+    // document.getElementById('owl').addEventListener('click',function (e) {
+    //     alert('owl clicked again');
+    // }, false);
+    // 3rd parameter is default parameter which is false here at start
 
     // attachEvent()
     // 4th approach
-    
+    // it uses in earlier times
+    // jQuery(framework) - onEventListener
+
+
+    // document.getElementById('images').addEventListener('click',function (e) {
+    //     console.log(e);
+    // }, false);
+
+
+    //bubbles up =>bottom to top
+    // document.getElementById('images').addEventListener('click',function (e) {
+    //     console.log('clicked inside the ul');
+    // }, false);
+
+    // document.getElementById('owl').addEventListener('click',function (e) {
+    //     console.log('owl clicked');
+    // }, false);
+
+
+    //Capturing mode =>top to bottom
+    // document.getElementById('images').addEventListener('click',function (e) {
+    //     console.log('clicked inside the ul');
+    // }, true);
+
+    // document.getElementById('owl').addEventListener('click',function (e) {
+    //     console.log('owl clicked');
+    // }, true);
+
+    //stop propogation => e help this to stop
+    // e => event object
+    document.getElementById('images').addEventListener('click',function (e) {
+        console.log('clicked inside the ul');
+    }, false);
+
+    document.getElementById('owl').addEventListener('click',function (e) {
+        console.log('owl clicked');
+        e.stopPropagation();
+    }, false);
+ 
+    document.getElementById('google').addEventListener('click',function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log('google clicked');
+    },false);
+
+    // event spill over
+    document.querySelector('#images').addEventListener('click',function (e) {
+        if(e.target.tagName==='IMG'){
+
+            console.log(e.target.tagName);
+            console.log(e.target.id);
+            e.target.parentNode.remove();
+        }
+    },false);
 </script>
+
 </html>
