@@ -16,10 +16,26 @@
     // time is in millisec.
 
     //setInterval()
-    setInterval(function () {
-        console.log('kapil');
-    },1000);
+    // setInterval(function () {
+    //     console.log('kapil',Date.now());
+    // },1000);
    
+    //setInrterval () by refrence
+    const sayDate = function (str) {
+        console.log(str,'by refrence',Date.now());
+    }
+
+    //const inter=setInterval(sayDate, 2000,' outside call');
+    //clearInterval(inter);
+
+    document.querySelector('#start').addEventListener('click',function () {
+        const interval=setInterval(sayDate, 2000,' inside call');
+            const stop=document.querySelector('#stop');
+            stop.addEventListener('click',function () {
+            clearInterval(interval);
+        })
+    })
+
     //clearInterval ()
     //clearInterval(lastText); //it will clear setInterval()
 
