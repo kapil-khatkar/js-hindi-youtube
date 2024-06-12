@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kapil Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // handler, callback, func
+    // setTimeout(handler,timeout,argument)
+    // time is in millisec.
+
+    //setTimeout ()
+    setTimeout(function () {
+        console.log('kapil');
+    },2000);
+
+
+    // setTimeout by refrence
+    const sayKapil = function () {
+        console.log('Kapil by reference');
+    }
+
+    setTimeout(sayKapil,3000); // by refrence
+
+    // change heading by setTimeout()
+    const chngText =function () {
+        document.querySelector('h1').innerHTML='best JS code';
+    }
+    const lastText=setTimeout(chngText,2000);
+
+    //clearTimeout
+    //clearTimeout(lastText); //it will clear setTimeout()
+
+    document.querySelector('#stop').addEventListener('click',function () {
+        clearTimeout(lastText);
+        console.log('Stopped');
+    });
+
+    //__setTimeout () func & setInterval () func 
+    //__are not a core func
+    // clearTimeout() & clearInterval() func's are also part of these func rsptvly.
+    // these function are accessed by the browser
+
+</script>
+</html>
