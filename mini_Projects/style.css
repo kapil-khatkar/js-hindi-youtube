@@ -1,0 +1,12 @@
+*{
+    margin: o;
+    padding: 0;
+}
+nav{
+    background-color: #fff;
+    height: 2rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+}
